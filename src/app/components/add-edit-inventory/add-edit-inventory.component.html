@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Inventory management</h1>
+<form
+  class="inventory-form"
+  [formGroup]="inventoryForm"
+  (ngSubmit)="onFormSubmit()">
+  <mat-dialog-content class="content">
+    <mat-form-field class="">
+      <mat-label>Product</mat-label>
+      <input
+        matInput
+        placeholder=""
+        type="text"
+        id="product"
+        formControlName="product" />
+    </mat-form-field>
+    <mat-form-field class="">
+      <mat-label>Stock level</mat-label>
+      <input
+        matInput
+        placeholder=""
+        type="text"
+        id="stock"
+        formControlName="stock" />
+    </mat-form-field>
+    <mat-form-field class="">
+      <mat-label>Supplier information</mat-label>
+      <input
+        matInput
+        placeholder=""
+        type="text"
+        id="supplier"
+        formControlName="supplier" />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button
+      mat-raised-button
+      [disabled]="inventoryForm.invalid"
+      color="primary"
+      type="submit">
+      {{ data ? "Update" : "Save" }}
+    </button>
+  </mat-dialog-actions>
+</form>
